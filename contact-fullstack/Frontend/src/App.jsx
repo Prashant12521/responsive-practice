@@ -9,7 +9,7 @@ const App = () => {
   }, []);
 
   function fetchContact() {
-    axios.get("http://localhost:3000/api/contacts").then((res) => {
+    axios.get("https://contact-t6km.onrender.com/api/contacts").then((res) => {
       setContacts(res.data.contacts);
     });
   }
@@ -19,7 +19,7 @@ const App = () => {
     const { profile, name, phone } = e.target.elements;
 
     axios
-      .post("http://localhost:3000/api/contacts", {
+      .post("https://contact-t6km.onrender.com/api/contacts", {
         profile: profile.value,
         name: name.value,
         phone: phone.value,
@@ -36,7 +36,7 @@ const App = () => {
 
   function handleDelete(contactId) {
     axios
-      .delete("http://localhost:3000/api/contacts/" + contactId)
+      .delete("https://contact-t6km.onrender.com/api/contacts/" + contactId)
       .then((res) => {
         console.log(res.data);
         fetchContact();
@@ -49,7 +49,7 @@ const App = () => {
     const phone = Number(prompt("Update number"));
 
     axios
-      .patch("http://localhost:3000/api/contacts/" + contactId, {
+      .patch("https://contact-t6km.onrender.com/api/contacts/" + contactId, {
         profile: profile,
         name: name,
         phone: phone,
